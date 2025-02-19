@@ -76,10 +76,62 @@ JavaScript สามารถเพิ่มลงในเว็บเพจไ
    - มีปุ่มเมื่อคลิกแล้วจะแสดงข้อความที่กรอกในช่องข้อความ  (สามารถใช้ document.getElementById('id ของ textbox').value เพื่อดึงข้อมูลในช่อง)
 ### บันทึกผลการทดลอง 
 ```html
-[บันทึกโค้ด ที่นี่]
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>ทดลอง JavaScript</title>
+</head>
+<body>
+
+    <!-- ปุ่มที่ 1: ใช้ Inline JavaScript แสดงชื่อนักศึกษา -->
+    <button onclick="alert('ชื่อนักศึกษา: สุวิมล')">ชื่อนักศึกษา</button>
+
+    <!-- ปุ่มที่ 2: ใช้ Internal JavaScript แสดงวันที่ปัจจุบัน -->
+    <button id="btn2">วันที่ปัจจุบัน</button>
+
+    <!-- ปุ่มที่ 3: ใช้ External JavaScript แสดงเวลาปัจจุบัน -->
+    <button id="btn3" onclick="hello3();">เวลาปัจจุบัน</button>
+
+    <br><br>
+
+    <!-- ช่องกรอกข้อความ -->
+    <input type="text" id="textbox" placeholder="กรอกข้อความที่นี่">
+    
+    <!-- ปุ่มแสดงข้อความ -->
+    <button onclick="displayText()">แสดงข้อความที่กรอก</button>
+    
+    <p id="message"></p>
+
+    <!-- Internal JavaScript -->
+    <script>
+
+        document.getElementById('btn2').onclick = function() {
+            let currentDate = new Date();
+            alert('วันที่: ' + currentDate.toLocaleDateString());
+        };
+
+        function displayText() {
+            let text = document.getElementById('textbox').value;
+            document.getElementById('message').innerText = "ข้อความที่กรอก: " + text;
+        }
+    </script>
+
+ 
+    <script src="script.js"></script>
+
+</body>
+</html>
+
+function hello3() {
+    let currentTime = new Date();
+    alert('เวลาปัจจุบัน: ' + currentTime.toLocaleTimeString());
+}
+
 ```
 [รูปผลการทดลองที่ 1]
-  
+  ![1](https://github.com/user-attachments/assets/22de9a9d-aaa8-449b-87f9-e6ae0485af75)
+
 ## การทดลองที่ 2: พื้นฐาน JavaScript
 ### 2.1 การประกาศตัวแปรและชนิดข้อมูล
 
