@@ -185,10 +185,37 @@ let person = {
 2. สร้าง Object สำหรับเก็บข้อมูลนักศึกษา  ประกอบด้วยข้อมูล รหัสนักศึกษา, ชื่อ, สาขาวิชา, เกรดเฉลี่ย
 
 ### บันทึกผลการทดลอง 2.1
-```html
-[บันทึกโค้ด ที่นี่]
-```
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>ข้อมูลนักศึกษา</title>
+</head>
+<body>
+    <h2>ข้อมูลนักศึกษา</h2>
+    
+    <p><strong>รหัสนักศึกษา:</strong> <span id="studentID"></span></p>
+    <p><strong>ชื่อนักศึกษา:</strong> <span id="studentName"></span></p>
+    <p><strong>คะแนนสอบกลางภาค:</strong> <span id="midtermScore"></span></p>
+    <p><strong>คะแนนสอบปลายภาค:</strong> <span id="finalScore"></span></p>
+
+    <script>
+        let student = {
+            id: "67030249",
+            name: "นางสาวสุวิมล ศรีประไหม",
+            midterm: 66,
+            final: 99
+        };
+
+        document.getElementById("studentID").innerText = student.id;
+        document.getElementById("studentName").innerText = student.name;
+        document.getElementById("midtermScore").innerText = student.midterm;
+        document.getElementById("finalScore").innerText = student.final;
+    </script>
+</body>
+</html>
 [รูปผลการทดลองที่ 2.1]
+![2 1](https://github.com/user-attachments/assets/3ccb942f-ad62-411a-a707-fde15b40afa0)
 
 
 ### 2.2 การดำเนินการทางคณิตศาสตร์
@@ -239,10 +266,67 @@ number /= 2;          // เท่ากับ number = number / 2
 2. เขียนโปรแกรม กำหนดชื่อสินค้า ราคาสินค้า คำนวณราคาสินค้าที่รวม VAT 7% แล้วแสดงผลการคำนวณ
 
 ### บันทึกผลการทดลอง 2.2
-```html
-[บันทึกโค้ด ที่นี่]
-```
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>คำนวณคะแนนเฉลี่ย</title>
+</head>
+<body>
+    <h2>คำนวณคะแนนเฉลี่ย</h2>
+    
+    <p>คะแนนวิชาที่ 1: <span id="score1"></span></p>
+    <p>คะแนนวิชาที่ 2: <span id="score2"></span></p>
+    <p>คะแนนวิชาที่ 3: <span id="score3"></span></p>
+    
+    <h3>คะแนนเฉลี่ย: <span id="averageScore">-</span></h3>
+
+    <script>
+        let score1 = 66;
+        let score2 = 75;
+        let score3 = 88;
+
+        let average = (score1 + score2 + score3) / 3;
+
+        document.getElementById("score1").innerText = score1;
+        document.getElementById("score2").innerText = score2;
+        document.getElementById("score3").innerText = score3;
+
+        document.getElementById("averageScore").innerText = average.toFixed(2);
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>คำนวณราคาสินค้าหลังรวม VAT</title>
+</head>
+<body>
+    <h2>คำนวณราคาสินค้าหลังรวม VAT 7%</h2>
+    
+    <p><strong>ชื่อสินค้า :</strong> <span id="productName"></span></p>
+    <p><strong>ราคาสินค้า :</strong> <span id="productPrice"></span> บาท</p>
+    <h3>ราคาสินค้าหลังรวม VAT 7% : <span id="priceWithVAT">-</span> บาท</h3>
+
+    <script>
+
+        let productName = "ลิปสติก";
+        let productPrice = 350;
+
+        let vatRate = 0.07; // 7% VAT
+        let priceWithVAT = productPrice + (productPrice * vatRate);
+
+        document.getElementById("productName").innerText = productName;
+        document.getElementById("productPrice").innerText = productPrice;
+
+        document.getElementById("priceWithVAT").innerText = priceWithVAT.toFixed(2);
+    </script>
+</body>
+</html>
 [รูปผลการทดลองที่ 2.2]
+![2 2](https://github.com/user-attachments/assets/248e3b77-3bee-488e-a8d2-fb1641dbd35b)
 
 ### 2.3 การควบคุมการทำงาน
 
@@ -372,10 +456,91 @@ for (let i = 1; i <= 5; i++) {
 4. เขียนโปรแกรมกำหนดอายุ และตรวจสอบช่วงวัยตามอายุที่กำหนด (กำหนดอายุแต่ละช่วงวัย วัยเด็ก วัยรุ่น วัยผู้ใหญ่)
 
 ### บันทึกผลการทดลอง 2.3
-```html
-[บันทึกโค้ด ที่นี่]
-```
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>การควบคุมการทำงานใน JavaScript</title>
+</head>
+<body>
+    <button onclick="checkEvenOdd()">ตรวจสอบเลขคู่-คี่</button>
+    <button onclick="showMultiplicationTable(2)">ตารางสูตรคูณแม่ 2</button>
+    <button onclick="showMultiplicationTableWhile(3)">ตารางสูตรคูณแม่ 3</button>
+    <button onclick="countDown()">นับถอยหลัง 10-1</button>
+    <button onclick="checkAge()">ตรวจสอบช่วงวัย</button>
+
+    <h3>ผลลัพธ์:</h3>
+    <pre id="output"></pre>
+
+    <script>
+        function printResult(text) {
+            document.getElementById("output").textContent += text + "\n";
+        }
+
+        function checkEvenOdd() {
+            let number = prompt("กรอกตัวเลขเพื่อตรวจสอบ:");
+            number = parseInt(number);
+            document.getElementById("output").textContent = ""; 
+            if (!isNaN(number)) {
+                if (number % 2 === 0) {
+                    printResult(`${number} เป็นเลขคู่`);
+                } else {
+                    printResult(`${number} เป็นเลขคี่`);
+                }
+            } else {
+                printResult("กรุณากรอกตัวเลขที่ถูกต้อง");
+            }
+        }
+
+        function showMultiplicationTable(num) {
+            document.getElementById("output").textContent = `ตารางสูตรคูณแม่ ${num}\n`;
+            for (let i = 1; i <= 12; i++) {
+                printResult(`${num} x ${i} = ${num * i}`);
+            }
+        }
+
+        function showMultiplicationTableWhile(num) {
+            document.getElementById("output").textContent = `ตารางสูตรคูณแม่ ${num}\n`;
+            let i = 1;
+            while (i <= 12) {
+                printResult(`${num} x ${i} = ${num * i}`);
+                i++;
+            }
+        }
+
+        function countDown() {
+            document.getElementById("output").textContent = "นับถอยหลัง:\n";
+            for (let i = 10; i >= 1; i--) {
+                printResult(i);
+            }
+        }
+
+        function checkAge() {
+            let age = prompt("กรอกอายุของคุณ:");
+            age = parseInt(age);
+            document.getElementById("output").textContent = "";
+
+            if (!isNaN(age)) {
+                if (age >= 0 && age <= 12) {
+                    printResult("อยู่ในช่วงวัยเด็ก");
+                } else if (age >= 13 && age <= 19) {
+                    printResult("อยู่ในช่วงวัยรุ่น");
+                } else if (age >= 20) {
+                    printResult("อยู่ในช่วงวัยผู้ใหญ่");
+                } else {
+                    printResult("กรุณากรอกอายุให้ถูกต้อง");
+                }
+            } else {
+                printResult("กรุณากรอกตัวเลขที่ถูกต้อง");
+            }
+        }
+    </script>
+</body>
+</html>
+
 [รูปผลการทดลองที่ 2.3]
+![2 3](https://github.com/user-attachments/assets/3cd943dc-6875-412a-a6aa-3270f50e1cc5)
 
 ### 2.4 Functions และ Arrow Functions
 
@@ -486,10 +651,84 @@ process(function() {
 3. เขียน function ตรวจสอบรหัสผ่านว่ามีความยาวมากกว่า 8 ตัวอักษรหรือไม่
 
 ### บันทึกผลการทดลอง 2.4.1
-```html
-[บันทึกโค้ด ที่นี่]
-```
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test JavaScript</title>
+</head>
+<body>
+    <h2>Test JavaScript</h2>
+
+    <button onclick="getBMI()">คำนวณค่า BMI</button>
+    <button onclick="getGreeting()">ทักทายตามอายุ</button>
+    <button onclick="checkUserPassword()">ตรวจสอบรหัสผ่าน</button>
+
+    <h3>ผลลัพธ์:</h3>
+    <pre id="output"></pre>
+
+    <script>
+        function printResult(text) {
+            document.getElementById("output").textContent = text;
+        }
+
+        function calculateBMI(weight, height) {
+            let bmi = weight / (height * height);
+            return `ค่า BMI ของคุณคือ ${bmi.toFixed(2)}`;
+        }
+
+        function getBMI() {
+            let weight = parseFloat(prompt("กรอกน้ำหนักของคุณ (กิโลกรัม):"));
+            let height = parseFloat(prompt("กรอกส่วนสูงของคุณ (เมตร):"));
+
+            if (!isNaN(weight) && !isNaN(height) && height > 0) {
+                printResult(calculateBMI(weight, height));
+            } else {
+                printResult("กรุณากรอกค่าน้ำหนักและส่วนสูงที่ถูกต้อง!");
+            }
+        }
+
+        function greetUser(name, age) {
+            if (age < 12) {
+                return `สวัสดีจ้า ${name}!`;
+            } else if (age < 20) {
+                return `ว่าไง  ${name}!`;
+            } else {
+                return `สวัสดีครับ ${name}!`;
+            }
+        }
+
+        function getGreeting() {
+            let name = prompt("กรอกชื่อของคุณ:");
+            let age = parseInt(prompt("กรอกอายุของคุณ:"));
+
+            if (name && !isNaN(age)) {
+                printResult(greetUser(name, age));
+            } else {
+                printResult("กรุณากรอกชื่อและอายุที่ถูกต้อง!");
+            }
+        }
+
+    
+        const checkPassword = (password) => {
+            return password.length > 8 ? "รหัสผ่านปลอดภัย" : "รหัสผ่านสั้นเกินไป!";
+        };
+
+        function checkUserPassword() {
+            let password = prompt("กรอกรหัสผ่านของคุณ:");
+            if (password) {
+                printResult(checkPassword(password));
+            } else {
+                printResult("กรุณากรอกรหัสผ่าน!");
+            }
+        }
+    </script>
+</body>
+</html>
 [รูปผลการทดลองที่ 2.4.1]
+![2 4ก](https://github.com/user-attachments/assets/bfb8a532-5338-42c1-a57e-7d762724aa21)
+![2 4ข](https://github.com/user-attachments/assets/a0668bdb-075e-41f4-a17b-bd6922dfab12)
 
 
 
